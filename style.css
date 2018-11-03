@@ -1,0 +1,227 @@
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(230, 230, 230, 0.8)));
+  background: linear-gradient(rgba(230, 230, 230, 0.8));
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 65%;
+  margin: 0 auto;
+}
+
+.menubar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.menubar h1 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 2.7em;
+}
+
+.menubar p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.menubar input[type='text'] {
+  width: 125px;
+  height: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 15px;
+  border: thin solid #000;
+}
+
+.menubar input[type='button'] {
+  font-size: 20px;
+  font-weight: bold;
+  width: 125px;
+  height: 30px;
+  border: thin solid #000;
+  background: -webkit-gradient(
+    linear,
+    left top, right bottom,
+    from(rgba(0, 125, 0, 1)),
+    to(rgba(0, 125, 0, 0.7))
+  );
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 125, 0, 1),
+    rgba(0, 125, 0, 0.7)
+  );
+}
+
+/* Body Section */
+
+#list {
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
+  border-radius: 1em;
+  border-top: 2px solid #000;
+  border-right: thin solid #000;
+  border-bottom: 2px solid #000;
+  border-left: thin solid #000;
+}
+
+.polaroid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.polaroid div {
+  -ms-flex-preferred-size: 200px;
+  flex-basis: 200px;
+  margin: 10px;
+  text-align: center;
+}
+
+.polaroid input[type='button'] {
+  width: 100%;
+  height: 25px;
+  border: thin solid #000;
+  background: -webkit-gradient(
+    linear,
+    left top, right bottom,
+    from(rgba(250, 0, 0, 1)),
+    to(rgb(250, 0, 0, 0.5))
+  );
+  background: linear-gradient(
+    to bottom right,
+    rgba(250, 0, 0, 1),
+    rgb(250, 0, 0, 0.5)
+  );
+}
+
+img {
+  width: 100%;
+  border-radius: 100%;
+}
+
+figure p {
+  font-weight: bold;
+}
+
+/* Smaller Screen Styles */
+
+@media only screen and (max-width: 960px) {
+  .menubar p {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .menubar input[type='text'],
+  .menubar input[type='button'] {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Print Style */
+
+@media print {
+  .container {
+    max-width: 100%;
+  }
+
+  .menubar,
+  .menubar h1,
+  .menubar p,
+  .menubar input[type='text'],
+  .menubar input[type='button'],
+  .polaroid input[type='button'] {
+    display: none;
+  }
+
+  /* Body Section */
+
+  #list {
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+    border-radius: 1em;
+    border-top: 2px solid #000;
+    border-right: thin solid #000;
+    border-bottom: 2px solid #000;
+    border-left: thin solid #000;
+  }
+
+  .polaroid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .polaroid div {
+    -ms-flex-preferred-size: 200px;
+    flex-basis: 200px;
+    margin: 40px;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  figure p {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
