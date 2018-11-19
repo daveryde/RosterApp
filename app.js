@@ -7,7 +7,7 @@ function loadSearches() {
 
   // Determined localStorage length / Create Empty Array For Local Storage
   var length = localStorage.length;
-  faces = [];
+  var faces = [];
 
   // Load all saved portraits into empty array
   for (var i = 0; i < length; ++i) {
@@ -15,7 +15,7 @@ function loadSearches() {
   }
 
   // Sort all saved portraits
-  faces.sort();
+  // faces.sort();
 
   // Find the results ID in the DOM / Create URL destination variable
   var results = document.getElementById('list');
@@ -27,7 +27,7 @@ function loadSearches() {
   // Load portraits array into markup with HTML elements
   for (var face in faces) {
     markup +=
-      "<div><img src='" +
+      "<div class='polaroidBox'><img src='" +
       url +
       localStorage.getItem(faces[face]) +
       ".jpg' id='" +
@@ -35,6 +35,8 @@ function loadSearches() {
       "'>" +
       '<p>' +
       faces[face] +
+      ' - ' +
+      localStorage.getItem(faces[face]) +
       "</p><input type='button' id='" +
       faces[face] +
       "' onclick='del(id)' value='Delete'></div>";
