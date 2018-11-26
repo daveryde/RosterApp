@@ -1,7 +1,12 @@
 body {
   font-size: 16px;
   font-family: sans-serif;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(230, 230, 230, 0.8)));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(230, 230, 230, 0.8))
+  );
   background: linear-gradient(rgba(230, 230, 230, 0.8));
 }
 
@@ -48,7 +53,7 @@ body {
   font-weight: bold;
 }
 
-.menubar input[type='text'] {
+.menubar input[type="text"] {
   width: 125px;
   height: 25px;
   font-size: 20px;
@@ -57,7 +62,7 @@ body {
   border: thin solid #000;
 }
 
-.menubar input[type='button'] {
+.menubar input[type="button"] {
   font-size: 20px;
   font-weight: bold;
   width: 125px;
@@ -65,7 +70,8 @@ body {
   border: thin solid #000;
   background: -webkit-gradient(
     linear,
-    left top, right bottom,
+    left top,
+    right bottom,
     from(rgba(0, 125, 0, 1)),
     to(rgba(0, 125, 0, 0.7))
   );
@@ -107,16 +113,16 @@ body {
   flex-basis: 200px;
   margin: 10px;
   text-align: center;
-  cursor: pointer;
 }
 
-.polaroid input[type='button'] {
+.polaroid input[type="button"] {
   width: 100%;
   height: 25px;
   border: thin solid #000;
   background: -webkit-gradient(
     linear,
-    left top, right bottom,
+    left top,
+    right bottom,
     from(rgba(250, 0, 0, 1)),
     to(rgb(250, 0, 0, 0.5))
   );
@@ -134,38 +140,6 @@ img {
 
 figure p {
   font-weight: bold;
-}
-
-#popped {
-  -webkit-animation: pop 0.5s linear forwards;
-  animation: pop 0.5s linear forwards;
-}
-
-@-webkit-keyframes pop {
-  0% {
-    flex-basis: 200px;
-  }
-  50% {
-    flex-basis: 250px;
-  }
-  100% {
-    flex-basis: 200px;
-  }
-}
-
-@keyframes pop {
-  0% {
-    -ms-flex-preferred-size: 200px;
-    flex-basis: 200px;
-  }
-  50% {
-    -ms-flex-preferred-size: 250px;
-    flex-basis: 250px;
-  }
-  100% {
-    -ms-flex-preferred-size: 200px;
-    flex-basis: 200px;
-  }
 }
 
 /* Smaller Screen Styles */
@@ -189,8 +163,8 @@ figure p {
     text-transform: uppercase;
   }
 
-  .menubar input[type='text'],
-  .menubar input[type='button'] {
+  .menubar input[type="text"],
+  .menubar input[type="button"] {
     width: 100%;
     margin: 10px 0;
   }
@@ -200,15 +174,15 @@ figure p {
 
 @media print {
   .container {
-    max-width: 100%;
+    max-width: 100vw;
   }
 
   .menubar,
   .menubar h1,
   .menubar p,
-  .menubar input[type='text'],
-  .menubar input[type='button'],
-  .polaroid input[type='button'] {
+  .menubar input[type="text"],
+  .menubar input[type="button"],
+  .polaroid input[type="button"] {
     display: none;
   }
 
@@ -216,13 +190,8 @@ figure p {
 
   #list {
     width: 100%;
-    height: auto;
-    margin-top: 25px;
-    border-radius: 1em;
-    border-top: 2px solid #000;
-    border-right: thin solid #000;
-    border-bottom: 2px solid #000;
-    border-left: thin solid #000;
+    height: 100%;
+    border: none;
   }
 
   .polaroid {
@@ -238,23 +207,28 @@ figure p {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 0;
   }
 
   .polaroid div {
-    -ms-flex-preferred-size: 200px;
-    flex-basis: 200px;
-    margin: 40px;
-    text-align: center;
+    max-height: 30vh;
+    margin-left: 20px;
+  }
+
+  .polaroid div:last-child {
+    margin-bottom: 40px;
   }
 
   img {
+    margin: 0;
     width: 100%;
+    height: auto;
   }
 
   figure p {
     font-weight: bold;
     margin: 0;
     padding: 0;
+    text-align: center;
   }
 }
