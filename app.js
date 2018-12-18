@@ -47,7 +47,7 @@ function loadSearches() {
       "<p class='card-text'>" +
       localStorage.getItem(faces[face]) +
       '</p>' +
-      "<button type='button' class='btn btn-danger' id='" +
+      "<button type='button' class='btn btn-danger print-hidden' id='" +
       faces[face] +
       "' onclick='del(id)'>Delete</button>" +
       '</div></div></div>';
@@ -66,6 +66,7 @@ function saveSearch() {
   var name = document.getElementById('docname');
   var query = document.getElementById('docnum');
 
+  // Validation check for six digits in query search
   if (/\d{6}/.test(query.value)) {
     // Store input data into localStorage (key/value)
     localStorage.setItem(name.value, query.value);
