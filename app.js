@@ -11,7 +11,7 @@ function loadSearches() {
 
   // Load all saved portraits into empty array
   for (var i = 0; i < length; ++i) {
-      faces[i] = localStorage.key(i);
+    faces[i] = localStorage.key(i);
   }
 
   // Sort all saved portraits
@@ -67,15 +67,15 @@ function saveSearch() {
   var query = document.getElementById('docnum');
 
   // Check for empty fields
-  if (query === '' && name === '') {
-    break;
+  if (!query === '' && name === '') {
+    // Store input data into localStorage (key/value)
+    localStorage.setItem(name.value, query.value);
+    name.value = ''; // clear name box
+    query.value = ''; // clear number box
+    loadSearches(); // reload the localStorage;
+  } else {
+    return false;
   }
-
-  // Store input data into localStorage (key/value)
-  localStorage.setItem(name.value, query.value);
-  name.value = ''; // clear name box
-  query.value = ''; // clear number box
-  loadSearches(); // reload the localStorage
 }
 
 // Delete the item by ID
