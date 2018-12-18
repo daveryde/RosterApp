@@ -5,44 +5,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="./app.js"></script>
-  <script src="./move.js"></script>
   <title>Roster Builder</title>
 </head>
 
 <body>
-  <div class="container">
-    <!-- Heading and Search Bar -->
-    <div class="menubar">
-      <p>
-        <h1>Roster Builder <span id="welcome"></span></h1>
-      </p>
-      <p>
-        <span>I/M Name</span>
-        <input type="text" name="inmateName" id="docname">
-        <span>DOC Number</span>
-        <input type="text" name="inmateNumber" id="docnum">
-        <input type="button" value="Search" id="submitButton">
-        <input type="button" id="order" value="Order" />
-      </p>
-    </div>
-    <!-- Body of Images -->
-    <div id="list">
-      <!-- Example of Photo Card
-      <div class='polaroid'>
-        <div>
-          <img src="">
-          <p>
-            Name
-          </p>
-          <input type='button' id='' onclick='del(id)' value='Delete'>
-        </div>
-      </div> 
-      -->
-    </div>
+  <div class="container-fluid">
+    <div class="row mb-2" style="background-color: #135e1e;">
 
+      <!-- Heading / App Name -->
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <nav class="navbar navbar-expand-lg navbar-dark" >
+          <a class="navbar-brand" href="#"><h3>Roster Builder</h3> 
+            <span id="welcome"></span>
+          </a>
+        </nav>
+      </div>
+    
+    <!-- Top Menu / Input Section -->
+    <div class="col-sm-12 col-md-8 col-lg-8 mt-3">
+
+      <!-- Form Search -->
+      <form>
+        <div class="form-row">
+          <label 
+          for="name" 
+          class="col-form-label col-form-label-md text-white"
+          >
+          Name
+        </label>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" name="inmateName" id="docname">
+          </div>
+          <label 
+          for="docnum" 
+          class="col-form-label col-form-label-md text-white"
+          >
+          DOC #
+          </label>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control"  name="inmateNumber" id="docnum">
+          </div>
+
+          <div class="col-sm-12 col-md-3 mb-2">
+            <button type="button" class="btn btn-outline-success mb-2" id="submitButton">Search</button>
+          </div>
+        </div> 
+      </form>
+    </div>
   </div>
+</div>
+      <!-- Body of Images -->
+      <div class="container">
+          <div id="list">
+        <!-- Example of Photo Card
+            <div class='card'>
+              <img class='card-img-top' src='https://apps.azcorrections.gov/mugshots/123456.jpg' id='123456' alt='123456'>
+                <div class='card-body'>
+                  <h4 class='card-title'>Name</h4>
+                    <p class='card-text'>
+                      123456
+                    </p>
+                  <button type='button' class='btn btn-danger' id='123456 onclick='del(id)'>Delete</button>
+                </div>
+            </div> 
+          -->
+          </div>
+      </div>
+      
+  </div>
+    
 
 </body>
 
