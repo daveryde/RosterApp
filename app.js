@@ -27,7 +27,7 @@ function loadSearches() {
   // Load portraits array into markup with HTML elements
   for (var face in faces) {
     markup +=
-      "<div class='col-sm-4 col-md-4 col-lg-3'>" +
+      "<div class='col-sm-4 col-md-4 col-lg-3 mb-2'>" +
       "<div class='card'>" +
       '' +
       '' +
