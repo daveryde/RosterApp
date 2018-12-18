@@ -11,7 +11,7 @@ function loadSearches() {
 
   // Load all saved portraits into empty array
   for (var i = 0; i < length; ++i) {
-    faces[i] = localStorage.key(i);
+      faces[i] = localStorage.key(i);
   }
 
   // Sort all saved portraits
@@ -22,24 +22,35 @@ function loadSearches() {
   var url = 'https://apps.azcorrections.gov/mugshots/';
 
   // Variable to store all of the HTML markup
-  var markup = "<div class='polaroid'>";
+  var markup = "<div class='row'>";
 
   // Load portraits array into markup with HTML elements
   for (var face in faces) {
     markup +=
-      "<div class='polaroidBox'><img src='" +
+      "<div class='col-sm-4 col-md-4 col-lg-3'>" +
+      "<div class='card'>" +
+      '' +
+      '' +
+      "<img class='card-img-top' " +
+      "src='" +
       url +
       localStorage.getItem(faces[face]) +
       ".jpg' id='" +
       faces[face] +
+      "' alt='" +
+      faces[face] +
       "'>" +
-      '<p>' +
+      "<div class='card-body text-center'>" +
+      "<h4 class='card-title'>" +
       faces[face] +
-      ' - ' +
+      '</h4>' +
+      "<p class='card-text'>" +
       localStorage.getItem(faces[face]) +
-      "</p><input type='button' id='" +
+      '</p>' +
+      "<button type='button' class='btn btn-danger' id='" +
       faces[face] +
-      "' onclick='del(id)' value='Delete'></div>";
+      "' onclick='del(id)'>Delete</button>" +
+      '</div></div></div>';
   } // end for loop
 
   // Close HTML markup variable
@@ -54,6 +65,11 @@ function saveSearch() {
   // Find the input data from the DOM
   var name = document.getElementById('docname');
   var query = document.getElementById('docnum');
+
+  // Check for empty fields
+  if (query === '' && name === '') {
+    break;
+  }
 
   // Store input data into localStorage (key/value)
   localStorage.setItem(name.value, query.value);
