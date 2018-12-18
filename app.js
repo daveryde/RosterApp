@@ -66,15 +66,14 @@ function saveSearch() {
   var name = document.getElementById('docname');
   var query = document.getElementById('docnum');
 
-  // Check for empty fields
-  if (!query === '' && name === '') {
+  if (/\d{6}/.test(query.value)) {
     // Store input data into localStorage (key/value)
     localStorage.setItem(name.value, query.value);
     name.value = ''; // clear name box
     query.value = ''; // clear number box
     loadSearches(); // reload the localStorage;
   } else {
-    return false;
+    alert('DOC number must be at least 6 digits!');
   }
 }
 
@@ -86,10 +85,10 @@ function del(id) {
 
 // Register event listeners and load localStorage
 function start() {
-  loadSearches();
-
   var search = document.getElementById('submitButton');
   search.addEventListener('click', saveSearch, false);
+
+  loadSearches();
 }
 
 //  Starts the app
