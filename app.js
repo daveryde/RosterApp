@@ -1,8 +1,8 @@
 function loadSearches() {
   // Welcome message if sessionStorge returns true
-  if (!sessionStorage.getItem('herePreviously')) {
-    sessionStorage.setItem('herePreviously', 'true');
-    document.getElementById('welcome').innerHTML = ', Welcome Back';
+  if (!sessionStorage.getItem("herePreviously")) {
+    sessionStorage.setItem("herePreviously", "true");
+    document.getElementById("welcome").innerHTML = ", Welcome Back";
   }
 
   // Determined localStorage length / Create Empty Array For Local Storage
@@ -18,20 +18,20 @@ function loadSearches() {
   // faces.sort();
 
   // Find the results ID in the DOM / Create URL destination variable
-  var results = document.getElementById('list');
-  var url = 'https://apps.azcorrections.gov/mugshots/';
+  var results = document.getElementById("list");
+  var url = "https://apps.azcorrections.gov/mugshots/";
 
   // Variable to store all of the HTML markup
-  var markup = "<div class='row'>";
+  var markup = "<div class='row align-items-start'>";
 
   // Load portraits array into markup with HTML elements
   for (var face in faces) {
     markup +=
       "<div class='col-sm-4 col-md-4 col-lg-3 mb-2'>" +
       "<div class='card'>" +
-      '' +
-      '' +
-      "<img class='card-img-top' " +
+      "" +
+      "" +
+      "<img class='card-img-top img-thumbnail' " +
       "src='" +
       url +
       localStorage.getItem(faces[face]) +
@@ -41,20 +41,20 @@ function loadSearches() {
       faces[face] +
       "'>" +
       "<div class='card-body text-center'>" +
-      "<h4 class='card-title'>" +
+      "<h4 class='card-title custom-title'>" +
       faces[face] +
-      '</h4>' +
+      "</h4>" +
       "<p class='card-text'>" +
       localStorage.getItem(faces[face]) +
-      '</p>' +
+      "</p>" +
       "<button type='button' class='btn btn-danger print-hidden' id='" +
       faces[face] +
       "' onclick='del(id)'>Delete</button>" +
-      '</div></div></div>';
+      "</div></div></div>";
   } // end for loop
 
   // Close HTML markup variable
-  markup += '</div>';
+  markup += "</div>";
 
   // Display markup inside the results element ID
   results.innerHTML = markup;
@@ -63,18 +63,18 @@ function loadSearches() {
 // Save the searched item
 function saveSearch() {
   // Find the input data from the DOM
-  var name = document.getElementById('docname');
-  var query = document.getElementById('docnum');
+  var name = document.getElementById("docname");
+  var query = document.getElementById("docnum");
 
   // Validation check for six digits in query search
   if (/\d{6}/.test(query.value)) {
     // Store input data into localStorage (key/value)
     localStorage.setItem(name.value, query.value);
-    name.value = ''; // clear name box
-    query.value = ''; // clear number box
+    name.value = ""; // clear name box
+    query.value = ""; // clear number box
     loadSearches(); // reload the localStorage;
   } else {
-    alert('DOC number must be at least 6 digits!');
+    alert("DOC number must be at least 6 digits!");
   }
 }
 
@@ -86,12 +86,12 @@ function del(id) {
 
 // Register event listeners and load localStorage
 function start() {
-  var search = document.getElementById('submitButton');
-  search.addEventListener('click', saveSearch, false);
+  var search = document.getElementById("submitButton");
+  search.addEventListener("click", saveSearch, false);
 
   loadSearches();
 }
 
 //  Starts the app
-window.addEventListener('load', start, false);
-window.addEventListener('storage', loadSearches, false);
+window.addEventListener("load", start, false);
+window.addEventListener("storage", loadSearches, false);
