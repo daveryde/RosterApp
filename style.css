@@ -1,10 +1,27 @@
 body {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(230, 230, 230, 0.8)));
+  font-size: 16px;
+  font-family: sans-serif;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(230, 230, 230, 0.8))
+  );
   background: linear-gradient(rgba(230, 230, 230, 0.8));
 }
+
+/* Print Style */
 
 @media print {
   .print-hidden {
     display: none;
+  }
+
+  .custom-card {
+    height: 80%;
+  }
+
+  .custom-title {
+    margin-bottom: 0;
   }
 }
